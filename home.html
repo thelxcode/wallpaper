@@ -31,6 +31,15 @@
       padding: 20px;
     }
 
+    .scroll-indicator {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #fff;
+      cursor: pointer;
+    }
+
     @keyframes fadeIn {
       from {
         opacity: 0;
@@ -46,6 +55,10 @@
     <div class="text-container" id="content">
       <!-- File content will be displayed here -->
     </div>
+    <div class="scroll-indicator">
+      <span>Scroll down to read more</span>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/><path fill="none" d="M0 0h24v24H0z"/></svg>
+    </div>
   </div>
 
   <script>
@@ -53,8 +66,22 @@
       .then(response => response.text())
       .then(data => {
         document.getElementById('content').innerText = data;
+        checkScroll();
       })
       .catch(error => console.error('Error fetching file:', error));
+
+    function checkScroll() {
+      var container = document.querySelector('.text-container');
+      var indicator = document.querySelector('.scroll-indicator');
+
+      container.addEventListener('scroll', function() {
+        if (container.scrollTop + container.clientHeight >= container.scrollHeight) {
+          indicator.style.display = 'none';
+        } else {
+          indicator.style.display = 'block';
+        }
+      });
+    }
   </script>
 </body>
 </html>
