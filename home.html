@@ -22,7 +22,7 @@
       align-items: center;
       text-align: center;
       color: white; /* Text color on top of the background */
-      animation: fadeIn 2s ease, slideInLeft 2s ease; /* Fade-in and slide-in animation */
+      animation: fadeIn 2s ease; /* Fade-in animation */
     }
 
     @keyframes fadeIn {
@@ -31,15 +31,6 @@
       }
       to {
         opacity: 1;
-      }
-    }
-
-    @keyframes slideInLeft {
-      from {
-        transform: translateX(-100%);
-      }
-      to {
-        transform: translateX(0);
       }
     }
   </style>
