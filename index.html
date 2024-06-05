@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gallery Website</title>
+  <title>Jimmy Gallery</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -41,8 +41,8 @@
     .modal-content {
       margin: auto;
       display: block;
-      width: 80%;
-      max-width: 700px;
+      max-width: 80%;
+      max-height: 80%;
     }
 
     .close {
@@ -57,6 +57,7 @@
   </style>
 </head>
 <body>
+  <h1 style="text-align: center;">Jimmy Gallery</h1>
   <div class="gallery">
     <img src="images/soldier.jpg" alt="Soldier 1">
     <img src="images/soldier1.jpg" alt="Soldier 2">
@@ -78,6 +79,8 @@
       img.addEventListener('click', () => {
         modal.style.display = 'block';
         modalImg.src = img.src;
+        modalImg.style.marginLeft = `${(window.innerWidth - modalImg.width) / 2}px`;
+        modalImg.style.marginTop = `${(window.innerHeight - modalImg.height) / 2}px`;
       });
     });
 
