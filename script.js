@@ -1,19 +1,16 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var wallpapers = document.querySelectorAll('.wallpaper img');
+    var photos = document.querySelectorAll('.photo');
 
-    wallpapers.forEach(function(wallpaper) {
-        wallpaper.addEventListener('click', function() {
-            toggleFullScreen(this);
+    photos.forEach(function(photo) {
+        var closeButton = photo.querySelector('.close-btn');
+        closeButton.addEventListener('click', function() {
+            closeFullScreen();
         });
     });
 
-    function toggleFullScreen(image) {
-        if (!document.fullscreenElement) {
-            image.requestFullscreen();
-        } else {
-            if (document.exitFullscreen) {
-                document.exitFullscreen();
-            }
+    function closeFullScreen() {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
         }
     }
 });
