@@ -64,3 +64,12 @@ header {
 .close-btn:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
+
+.overlay {
+    /* Existing styles */
+    display: none; /* Initially hide overlay */
+}
+
+.photo:hover .overlay {
+    display: flex; /* Show overlay on hover */
+}
