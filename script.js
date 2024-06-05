@@ -1,15 +1,15 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var wallpapers = document.querySelectorAll('.wallpaper');
+    var wallpapers = document.querySelectorAll('.wallpaper img');
 
     wallpapers.forEach(function(wallpaper) {
         wallpaper.addEventListener('click', function() {
-            toggleFullScreen();
+            toggleFullScreen(this);
         });
     });
 
-    function toggleFullScreen() {
+    function toggleFullScreen(image) {
         if (!document.fullscreenElement) {
-            document.documentElement.requestFullscreen();
+            image.requestFullscreen();
         } else {
             if (document.exitFullscreen) {
                 document.exitFullscreen();
