@@ -1,43 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stylish Photo Gallery</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery Website</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .gallery img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      margin: 10px;
+      cursor: pointer;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.9);
+    }
+
+    .modal-content {
+      margin: auto;
+      display: block;
+      width: 80%;
+      max-width: 700px;
+    }
+
+    .close {
+      color: white;
+      position: absolute;
+      top: 10px;
+      right: 25px;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Stylish Photo Gallery</h1>
-    </header>
+  <div class="gallery">
+    <img src="images/soldier.jpg" alt="Soldier 1">
+    <img src="images/soldier1.jpg" alt="Soldier 2">
+    <img src="images/soldier2.jpg" alt="Soldier 3">
+    <img src="images/soldier3.jpg" alt="Soldier 4">
+  </div>
 
-    <div class="gallery">
-        <div class="photo">
-            <img src="https://raw.githubusercontent.com/thelxcode/wallpaper/main/images/soldier1.jpg" alt="Soldier 1">
-            <div class="overlay">
-                <button class="close-btn">Close</button>
-            </div>
-        </div>
-        <div class="photo">
-            <img src="https://raw.githubusercontent.com/thelxcode/wallpaper/main/images/soldier2.jpg" alt="Soldier 2">
-            <div class="overlay">
-                <button class="close-btn">Close</button>
-            </div>
-        </div>
-        <div class="photo">
-            <img src="https://raw.githubusercontent.com/thelxcode/wallpaper/main/images/soldier3.jpg" alt="Soldier 3">
-            <div class="overlay">
-                <button class="close-btn">Close</button>
-            </div>
-        </div>
-        <div class="photo">
-            <img src="https://raw.githubusercontent.com/thelxcode/wallpaper/main/images/soldier.jpg" alt="Soldier 4">
-            <div class="overlay">
-                <button class="close-btn">Close</button>
-            </div>
-        </div>
-    </div>
+  <div id="myModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImg">
+  </div>
 
-    <script src="script.js"></script>
+  <script>
+    const modal = document.getElementById('myModal');
+    const images = document.querySelectorAll('.gallery img');
+    const modalImg = document.getElementById('modalImg');
+
+    images.forEach(img => {
+      img.addEventListener('click', () => {
+        modal.style.display = 'block';
+        modalImg.src = img.src;
+      });
+    });
+
+    const closeModal = () => {
+      modal.style.display = 'none';
+    };
+
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) {
+        closeModal();
+      }
+    });
+
+    document.querySelector('.close').addEventListener('click', closeModal);
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        closeModal();
+      }
+    });
+  </script>
 </body>
 </html>
