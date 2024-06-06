@@ -205,6 +205,18 @@
           alert('Failed to fetch message. Please try again later.');
         });
     });
+    function openModal(imgSrc) {
+        var modal = document.getElementById("myModal");
+        var modalImg = document.getElementById("modalImg");
+        modal.style.display = "block";
+        modalImg.src = imgSrc;
+    }
+
+        // Close modal function
+    function closeModal() {
+        var modal = document.getElementById("myModal");
+        modal.style.display = "none";
+    }
   </script>
 </body>
 </html>
