@@ -22,6 +22,7 @@
       flex-direction: column;
       text-align: center;
       padding: 20px;
+      position: relative; /* Added */
     }
 
     .header {
@@ -36,9 +37,11 @@
       width: 90%;
       background-color: #fff;
       border-radius: 10px;
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.3); /* Modified shadow */
       padding: 30px;
       transition: transform 0.3s ease;
+      position: relative; /* Added */
+      z-index: 1; /* Added */
     }
 
     .love-message {
@@ -73,6 +76,33 @@
       margin-top: 20px;
     }
 
+    .top-shadow { /* Added */
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 20px;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.3), transparent);
+    }
+
+    .bottom-shadow { /* Added */
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 20px;
+      background: linear-gradient(to top, rgba(0,0,0,0.3), transparent);
+    }
+
+    .side-shadow { /* Added */
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: -20px;
+      width: 20px;
+      background: linear-gradient(to right, rgba(0,0,0,0.3), transparent);
+    }
+
     @media (min-width: 768px) {
       .container {
         height: 100vh;
@@ -87,11 +117,13 @@
 <body>
   <div class="container">
     <div class="header">For My Love</div>
-    <button class="cta-button">KRISHNA NIRAU</button> <!-- New button -->
+    <div class="top-shadow"></div> <!-- Added shadow -->
     <div class="content">
-      <p class="love-message">Loading message...</p> <!-- Placeholder message -->
+      <button class="cta-button">KRISHNA NIRAU</button> <!-- Moved button inside content -->
+      <p class="love-message">Loading message...</p>
       <a href="#" class="cta-button">Send a Kiss</a>
     </div>
+    <div class="bottom-shadow"></div> <!-- Added shadow -->
   </div>
   <div class="footer">Made with ❤️ by Your Name</div>
 
