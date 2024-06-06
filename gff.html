@@ -176,6 +176,12 @@
         text-decoration: none;
         cursor: pointer;
     }
+    .music-player {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+    }
   </style>
 </head>
 <body>
@@ -200,6 +206,13 @@
     <div id="myModal" class="modal">
         <span class="close" onclick="closeModal()">&times;</span>
         <img class="modal-content" id="modalImg">
+    </div>
+    <div class="gap"></div>
+    <div class="music-player">
+      <audio controls>
+        <source src="https://thelxcode.github.io/AudioPlayer/music/Hare_Hare__Hum_to_dil_se_hare__-_Lofi_Song_%5BSlowed___Reverb%5D___ShariqueKhan___Nic_Lofi(256k).mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
     </div>
     <div class="gap"></div>
     <button class="cta-button">12 December 2024</button>
