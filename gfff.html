@@ -72,7 +72,7 @@
     <div class="content">
       <p class="love-message">My dearest, every moment spent with you is a treasure. Your smile brightens my day and your love fills my heart. I am grateful for your presence in my life.</p>
       <form class="password-form">
-        <input type="text" id="password" placeholder="Enter password">
+        <input type="password" id="password" placeholder="Enter password">
         <button type="submit" class="cta-button">Enter</button>
       </form>
     </div>
@@ -85,7 +85,7 @@
       form.addEventListener('submit', function(event) {
         event.preventDefault();
         const password = document.getElementById('password').value.toLowerCase();
-        const validPasswords = ['jimmy', 'jigmmhY']; // List of valid passwords in any case
+        const validPasswords = ['jimmy', 'jim9my', 'krishna', 'krishna)@(9287₹+₹']; // List of valid passwords in any case
         if (validPasswords.includes(password)) {
           window.location.href = 'https://your-website-url.com'; // Redirect to your website if password is correct
         } else {
