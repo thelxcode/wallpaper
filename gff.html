@@ -134,9 +134,6 @@
     <div class="content">
       <button class="cta-button">KRISHNA NIRAU</button>
       <p class="love-message">Loading message...</p>
-      <img class="image" src="https://i.postimg.cc/FKnNXfvZ/soldier2.jpg" alt="Soldier 2">
-      <img class="image" src="https://i.postimg.cc/ydMKWwk3/soldier3.jpg" alt="Soldier 3">
-      <img class="image" src="https://i.postimg.cc/7PzDjYW3/soldier.jpg" alt="Soldier 1">
     </div>
     <div class="bottom-shadow"></div>
     <div class="gap"></div>
@@ -155,18 +152,6 @@
           console.error('Error:', error);
           alert('Failed to fetch message. Please try again later.');
         });
-
-      // Function to toggle fullscreen mode for images
-      const images = document.querySelectorAll('.image');
-      images.forEach(image => {
-        image.addEventListener('click', () => {
-          if (!document.fullscreenElement) {
-            image.requestFullscreen();
-          } else {
-            document.exitFullscreen();
-          }
-        });
-      });
     });
   </script>
 </body>
