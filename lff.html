@@ -146,13 +146,14 @@
         .then(response => response.text())
         .then(text => {
           const loveMessage = document.querySelector('.love-message');
-          loveMessage.textContent = text;
+          loveMessage.innerHTML = text.replace(/\n/g, '<br>'); // Replacing newline characters with <br> tags
         })
         .catch(error => {
           console.error('Error:', error);
           alert('Failed to fetch message. Please try again later.');
         });
     });
+
   </script>
 </body>
 </html>
