@@ -36,7 +36,7 @@
 
     .content {
       width: 90%;
-      background: linear-gradient(to right, #4c1476, #ff9966); /* Changed background gradient */
+      background: linear-gradient(to right, #ff9966, #ff5e62); /* Changed background gradient */
       border-radius: 10px;
       box-shadow: 0 0 30px #ff69b4;
       padding: 30px;
@@ -53,7 +53,17 @@
     }
 
     .cta-button {
-      display: none; /* Removed send kiss button */
+      display: inline-block;
+      padding: 15px 30px;
+      background-color: #ff69b4;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 50px;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #e64980;
     }
 
     .footer {
@@ -64,7 +74,6 @@
       text-align: center;
       margin-top: 20px;
       position: relative;
-      display: none; /* Removed footer */
     }
 
     .footer-content {
@@ -121,6 +130,7 @@
     <div class="gap"></div>
     <div class="top-shadow"></div>
     <div class="content">
+      <button class="cta-button">KRISHNA NIRAU</button> <!-- Added button back -->
       <p class="love-message">Loading message...</p>
     </div>
     <div class="bottom-shadow"></div>
