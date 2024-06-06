@@ -43,19 +43,28 @@
       transition: transform 0.3s ease;
       position: relative;
       z-index: 1;
-      max-height: 80vh; /* Limit content height for scroll */
-      overflow-y: auto; /* Enable vertical scroll */
     }
 
     .love-message {
-      font-size: 16px;
+      font-size: 18px; /* Decreased font size */
       line-height: 1.6;
       margin-bottom: 30px;
       color: #333;
+      font-weight: bold; /* Made text bold */
     }
 
     .cta-button {
-      display: none; /* Hide button by default */
+      display: inline-block;
+      padding: 15px 30px;
+      background-color: #ff69b4;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 50px;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #e64980;
     }
 
     .footer {
@@ -106,26 +115,6 @@
       margin: 20px 0;
     }
 
-    .scroll-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 2;
-      display: none;
-    }
-
-    .scroll-button a {
-      display: block;
-      width: 40px;
-      height: 40px;
-      line-height: 40px;
-      text-align: center;
-      background-color: #ff69b4;
-      color: #fff;
-      border-radius: 50%;
-      text-decoration: none;
-    }
-
     @media (min-width: 768px) {
       .container {
         height: 100vh;
@@ -133,10 +122,6 @@
 
       .content:hover {
         transform: translateY(-5px);
-      }
-
-      .scroll-button {
-        display: block; /* Show scroll button on desktop */
       }
     }
   </style>
@@ -147,16 +132,12 @@
     <div class="gap"></div>
     <div class="top-shadow"></div>
     <div class="content">
+      <button class="cta-button">KRISHNA NIRAU</button>
       <p class="love-message">Loading message...</p>
     </div>
     <div class="bottom-shadow"></div>
     <div class="gap"></div>
     <button class="cta-button">12 December 2024</button>
-  </div>
-
-  <!-- Scroll Button -->
-  <div class="scroll-button">
-    <a href="#top">&#8679;</a>
   </div>
 
   <script>
@@ -165,7 +146,7 @@
         .then(response => response.text())
         .then(text => {
           const loveMessage = document.querySelector('.love-message');
-          loveMessage.innerHTML = text.replace(/\n/g, '<br>');
+          loveMessage.innerHTML = text.replace(/\n/g, '<br>'); // Replacing newline characters with <br> tags
         })
         .catch(error => {
           console.error('Error:', error);
