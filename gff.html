@@ -4,24 +4,174 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>For My Love</title>
-  <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #e0e0e0;
+      color: #333;
+    }
+
+    .container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+    }
+
+    .header {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #555;
+      text-transform: uppercase;
+      text-shadow: 0 0 10px pink;
+    }
+
+    .content {
+      width: 90%;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+      padding: 30px;
+      transition: transform 0.3s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    .love-message {
+      font-size: 18px; /* Decreased font size */
+      line-height: 1.6;
+      margin-bottom: 30px;
+      color: #333;
+      font-weight: bold; /* Made text bold */
+    }
+
+    .cta-button {
+      display: none; /* Hide button by default */
+    }
+
+    .footer {
+      width: 100%;
+      background-color: #333;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+      margin-top: 20px;
+      position: relative;
+      display: none;
+    }
+
+    .footer-content {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .top-shadow {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 20px;
+      background: linear-gradient(to bottom, rgba(255,192,203,0.5), transparent);
+    }
+
+    .bottom-shadow {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 20px;
+      background: linear-gradient(to top, rgba(255,192,203,0.5), transparent);
+    }
+
+    .side-shadow {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: -20px;
+      width: 20px;
+      background: linear-gradient(to right, rgba(255,192,203,0.5), transparent);
+    }
+
+    .gap {
+      margin: 20px 0;
+    }
+
+    .scroll-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 2;
+      display: none;
+    }
+
+    .scroll-button a {
+      display: block;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      background-color: #ff69b4;
+      color: #fff;
+      border-radius: 50%;
+      text-decoration: none;
+    }
+
+    @media (min-width: 768px) {
+      .container {
+        height: 100vh;
+      }
+
+      .content:hover {
+        transform: translateY(-5px);
+      }
+
+      .scroll-button {
+        display: block; /* Show scroll button on desktop */
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="container">
     <div class="header">For My Love</div>
+    <div class="gap"></div>
+    <div class="top-shadow"></div>
     <div class="content">
-      <p class="love-message">My dearest, every moment spent with you is a treasure. Your smile brightens my day and your love fills my heart. I am grateful for your presence in my life.</p>
-      <form class="message-form">
-        <textarea class="message-input" placeholder="Write a love note..."></textarea>
-        <button type="submit" class="cta-button">Send</button>
-      </form>
-      <div class="message-container"></div> <!-- New div to display messages -->
+      <button class="cta-button">KRISHNA NIRAU</button>
+      <p class="love-message">Loading message...</p>
     </div>
-    <img src="https://source.unsplash.com/featured/?love" alt="Romantic Image" class="romantic-image">
+    <div class="bottom-shadow"></div>
+    <div class="gap"></div>
+    <button class="cta-button">12 December 2024</button>
   </div>
-  <div class="footer">Made with ❤️ by Your Name</div>
 
-  <script src="script.js"></script>
+  <!-- Scroll Button -->
+  <div class="scroll-button">
+    <a href="#top">&#8679;</a>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      fetch('https://raw.githubusercontent.com/thelxcode/wallpaper/main/web.txt')
+        .then(response => response.text())
+        .then(text => {
+          const loveMessage = document.querySelector('.love-message');
+          loveMessage.innerHTML = text.replace(/\n/g, '<br>'); // Replacing newline characters with <br> tags
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          alert('Failed to fetch message. Please try again later.');
+        });
+    });
+  </script>
 </body>
 </html>
