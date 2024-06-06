@@ -22,7 +22,6 @@
       flex-direction: column;
       text-align: center;
       padding: 20px;
-      position: relative; /* Added */
     }
 
     .header {
@@ -37,11 +36,11 @@
       width: 90%;
       background-color: #fff;
       border-radius: 10px;
-      box-shadow: 0 0 30px rgba(0, 0, 0, 0.3); /* Modified shadow */
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
       padding: 30px;
       transition: transform 0.3s ease;
-      position: relative; /* Added */
-      z-index: 1; /* Added */
+      position: relative;
+      z-index: 1;
     }
 
     .love-message {
@@ -71,12 +70,10 @@
       color: #fff;
       padding: 20px 0;
       text-align: center;
-      position: relative;
-      z-index: 1;
       margin-top: 20px;
     }
 
-    .top-shadow { /* Added */
+    .top-shadow {
       position: absolute;
       top: 0;
       left: 0;
@@ -85,7 +82,7 @@
       background: linear-gradient(to bottom, rgba(0,0,0,0.3), transparent);
     }
 
-    .bottom-shadow { /* Added */
+    .bottom-shadow {
       position: absolute;
       bottom: 0;
       left: 0;
@@ -94,13 +91,17 @@
       background: linear-gradient(to top, rgba(0,0,0,0.3), transparent);
     }
 
-    .side-shadow { /* Added */
+    .side-shadow {
       position: absolute;
       top: 0;
       bottom: 0;
       left: -20px;
       width: 20px;
       background: linear-gradient(to right, rgba(0,0,0,0.3), transparent);
+    }
+
+    .gap { /* Added */
+      margin: 20px 0; /* Adjust the gap as needed */
     }
 
     @media (min-width: 768px) {
@@ -117,13 +118,15 @@
 <body>
   <div class="container">
     <div class="header">For My Love</div>
-    <div class="top-shadow"></div> <!-- Added shadow -->
+    <div class="gap"></div> <!-- Added gap -->
+    <div class="top-shadow"></div>
     <div class="content">
-      <button class="cta-button">KRISHNA NIRAU</button> <!-- Moved button inside content -->
+      <button class="cta-button">KRISHNA NIRAU</button>
       <p class="love-message">Loading message...</p>
       <a href="#" class="cta-button">Send a Kiss</a>
     </div>
-    <div class="bottom-shadow"></div> <!-- Added shadow -->
+    <div class="bottom-shadow"></div>
+    <div class="gap"></div> <!-- Added gap -->
   </div>
   <div class="footer">Made with ❤️ by Your Name</div>
 
